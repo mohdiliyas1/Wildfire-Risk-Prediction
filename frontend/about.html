@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Wildfire Risk Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" style="font-size: 1rem;">🔥 Wildfire Risk Predictor</div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+       <li><a href="/indicators">Indicators</a></li>
+      <li><a href="/our-models">Our Model</a></li>
+      <li><a href="/predict-page">Predict</a></li>
+    </ul>
+  </nav>
+
+  <header class="header">
+    <h1>About This Project</h1>
+    <p>Learn more about the technology, data, and purpose behind wildfire risk prediction.</p>
+  </header>
+
+  <main class="about-content">
+    <section class="info-card">
+      <h2>🎯 Objective</h2>
+      <p>This project aims to build a wildfire prediction system that classifies the fire risk based on environmental and weather-based features using machine learning models.</p>
+    </section>
+
+    <section class="info-card">
+      <h2>📊 Data Used</h2>
+      <p>The dataset includes temperature, humidity, rainfall, wind speed, and seasonal data. After preprocessing and feature engineering, the most predictive features are used for the model.</p>
+    </section>
+
+    <section class="info-card">
+      <h2>🧠 Model Details</h2>
+      <p>We use models like Random Forest, Logistic Regression, and K-Nearest Neighbors. The best-performing model is chosen based on accuracy and recall scores.</p>
+    </section>
+
+    <section class="info-card">
+      <h2>🚀 Technologies</h2>
+      <p>Built with Python, Flask (backend), HTML/CSS/JS (frontend), Data Storage- (SQLite3) and scikit-learn for modeling. Deployment-ready and scalable for large datasets.</p>
+    </section>
+
+    <section class="info-card">
+      <h2>📌 Safety Guidance</h2>
+      <p>When high fire risk is predicted, the application provides safety suggestions and promotes proactive measures for disaster prevention.</p>
+    </section>
+  </main>
+
+<footer class="footer">
+    <p >© 2025 Wildfire Predictor Project</p>
+    <p>| Privacy | Contact | Help | Terms |</p>
+  </footer>
+  <script>
+    // Smooth scroll for internal anchor tags
+document.querySelectorAll('a[href^="/#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute("href").replace("/#", "");
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  });
+});
+
+  </script>
+</body>
+</html>

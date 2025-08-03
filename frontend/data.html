@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prediction Records</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='data.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <h1>📊 Prediction Records</h1>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/indicators">Indicators</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/predict">Predict</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Past Predictions</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Drought Code</th>
+          <th>Temperature (°C)</th>
+          <th>December?</th>
+          <th>March?</th>
+          <th>Prediction</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data %}
+          <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>
+              {% if row[5] == 1 %}
+                🔥 High Risk
+              {% else %}
+                ✅ Low Risk
+              {% endif %}
+            </td>
+            <td>{{ row[6] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

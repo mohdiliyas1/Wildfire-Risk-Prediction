@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.navbar {
+  background-color: #1e3c72;
+  color: white;
+  padding: 0rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background: linear-gradient(to right, #2a5298, #1e3c72);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  animation: slideDown 0.6s ease-in-out;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+ color: #ffdd57;
+}
+
+.models-header {
+  text-align: center;
+  padding: 3rem 2rem 1rem;
+}
+
+.models-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.model-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.model-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.model-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.model-card h3 {
+  margin-top: 0;
+  color: #e74c3c;
+}
+
+.model-details {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.hidden {
+  display: none;
+}
+/* Visual card */
+.visual-card {
+  cursor: default;
+}
+
+.visual-card img {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: 0 auto 1rem;
+  border-radius: 8px;
+}
+footer {
+  background:   #1e3c72;
+  color: #ccc;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}

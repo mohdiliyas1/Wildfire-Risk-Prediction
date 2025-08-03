@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wildfire Risk Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+
+  <nav class="navbar">
+    <h1 class="logo" style="font-size: 1rem;">🔥 Wildfire Predictor</h1>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/indicators">Indicators</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/our-models">Our Model</a></li>
+    </ul>
+  </nav>
+
+  <header class="banner">
+    <div class="overlay">
+      <h1>Welcome to Wildfire Risk Predictor</h1>
+      <p>Learn, understand, and predict wildfire risk effectively.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>🔥 Wildfire Risk Predictor</h1>
+    <form id="fireForm">
+      <div class="form-group">
+        <input type="number" id="DC" placeholder="Drought Code (DC)" step="any" required>
+      </div>
+      <div class="form-group">
+        <input type="number" id="temp" placeholder="Temperature (°C)" step="any" required>
+      </div>
+      <div class="form-group">
+        <label for="month_dec">Is it December?</label>
+        <select id="month_dec" required>
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="month_mar">Is it March?</label>
+        <select id="month_mar" required>
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+      <button type="submit">Predict</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <section class="after-predict-info" style="display: none;">
+  <div class="info-box">
+    <h2>Explore Fire Risk Visually</h2>
+    <p>
+      Want to see where fire risks have been predicted on the map? 
+      View real-time predictions and geo-locations submitted by users across different regions.
+    </p>
+    <button onclick="window.location.href='/map'" class="map-button">View on Map</button>
+  </div>
+</section>
+
+   <footer class="footer">
+    <p >© 2025 Wildfire Predictor Project</p>
+    <p>| Privacy | Contact | Help | Terms |</p>
+  </footer>
+
+
+  <script>
+    document.getElementById('fireForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+     navigator.geolocation.getCurrentPosition(async function(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+
+      const data = {
+        DC: parseFloat(document.getElementById('DC').value),
+        temp: parseFloat(document.getElementById('temp').value),
+        month_dec: parseInt(document.getElementById('month_dec').value),
+        month_mar: parseInt(document.getElementById('month_mar').value),
+         latitude,
+        longitude
+      };
+
+      const response = await fetch('/predict', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      document.getElementById('result').innerText =
+        result.fire_risk === 1 ? '🔥 High Fire Risk Detected!' : '✅ Low Fire Risk';
+         // Show the map redirect section
+      document.querySelector('.after-predict-info').style.display = 'block';
+    },
+    function(error) {
+      alert('Geolocation is required to predict risk. Please allow location access.');
+    });
+      });
+  </script>
+
+</body>
+</html>

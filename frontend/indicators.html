@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fire Risk Indicators</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='indicators.css')}}" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" style="font-size: 1rem;">🔥 Wildfire Predictor</div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/our-models">Our Models</a></li>
+       <li><a href="/predict-page">Predict</a></li>
+    </ul>
+  </nav>
+
+  <header class="header">
+    <h1>Key Fire Risk Indicators</h1>
+    <p>Visualizing what drives wildfires</p>
+  </header>
+
+  <section class="indicators-container">
+    <div class="indicator-card fade-in">
+      <i class="fas fa-temperature-high"></i>
+      <h3>Temperature</h3>
+      <p>High temperatures dry vegetation, increasing its likelihood of ignition.</p>
+    </div>
+    <div class="indicator-card fade-in">
+      <i class="fas fa-wind"></i>
+      <h3>Wind Speed</h3>
+      <p>Strong winds accelerate the spread of wildfires dramatically.</p>
+    </div>
+    <div class="indicator-card fade-in">
+      <i class="fas fa-cloud-rain"></i>
+      <h3>Rainfall</h3>
+      <p>Dry spells after rainfall can cause rapid vegetation growth, increasing fire risk.</p>
+    </div>
+  </section>
+
+  <section class="charts-section">
+    <h2>Wildfire Data Insights</h2>
+    <div class="chart-container">
+      <canvas id="barChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="pieChart"></canvas>
+    </div>
+  </section>
+
+<footer class="footer">
+    <p >© 2025 Wildfire Predictor Project</p>
+    <p>| Privacy | Contact | Help | Terms |</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='indicators.js')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Models</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='models.css') }}" />
+  <script defer src="{{ url_for('static', filename='models.js') }}"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <h1 style="font-size: 1rem;">🔥 Wildfire Predictor</h1>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/indicators">Indicators</a></li>
+       <li><a href="/about">About</a></li>
+      <li><a href="/predict-page">Predict</a></li>
+    </ul>
+  </nav>
+
+  <header class="models-header">
+    <h2>Our Machine Learning Model</h2>
+    <p>Learn how our system accurately detects wildfire risks using modern algorithms.</p>
+  </header>
+
+  <section class="model-section">
+    <div class="model-card" onclick="toggleDetails(this)">
+      <h3>K-Nearest Neighbors (KNN)</h3>
+      <p>We use KNN to classify fire risk based on nearest historical data points.</p>
+      <a>show more</a>
+      <div class="model-details hidden">
+        <ul>
+          <li><strong>Selected Features:</strong> DC, Temperature, Month_Dec, Month_Mar</li>
+          <li><strong>Feature Engineering:</strong> One-hot encoding for months, scaling</li>
+          <li><strong>Accuracy:</strong> ~62.5%</li>
+          <li><strong>Use-case:</strong> Classifies new environments as 'Risk' or 'No Risk'</li>
+        </ul>
+      </div>
+    </div>
+     </section>
+     <section class="model-section">
+     <div class="model-card visual-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/KnnClassification.svg/500px-KnnClassification.svg.png" alt="KNN Visual" />
+      <h3>Why KNN for Fire Risk?</h3>
+      <p>KNN is intuitive and effective for pattern recognition in wildfire data. It compares new data with past fire events to classify risk levels accurately.</p>
+    </div>
+     </section>
+    <footer class="footer">
+    <p >© 2025 Wildfire Predictor Project</p>
+    <p>| Privacy | Contact | Help | Terms |</p>
+  </footer>
+
+</body>
+</html>

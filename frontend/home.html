@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wildfire Risk Predictor - Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <!-- AOS CSS -->
+   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🔥 FireRisk AI</div>
+    <ul class="nav-links">
+      <li><a href="/about">About</a></li>
+      <li><a href="/indicators">Indicators</a></li>
+      <li><a href="/our-models">Our Model</a></li>
+      <li><a href="/predict-page">Predict</a></li>
+    </ul>
+  </nav>
+
+  <header class="banner">
+    <div class="overlay">
+      <h1>Welcome to Wildfire Risk Predictor</h1>
+      <p>Learn, understand, and predict wildfire risk effectively.</p>
+      <!-- <a href="/predict" class="predict-btn" style="cursor: pointer!important;">🔥 Wanna Predict?</a> -->
+    </div>
+  </header>
+
+<section class="cards" id="about">
+  <div class="card"  data-aos="fade-up">
+    <h2>🌲 What Are Wildfires?</h2>
+    <p>Wildfires are rapidly spreading, uncontrolled fires that occur in natural landscapes such as forests, grasslands, or brush areas. These fires threaten ecosystems, wildlife, human settlements, and air quality, often resulting in devastating consequences.</p>
+  </div>
+
+  <div class="card" id="indicators"  data-aos="fade-up">
+    <h2>⚠️ Causes & Key Indicators</h2>
+    <p>Wildfires are commonly triggered by lightning strikes, prolonged dry spells, high temperatures, and human negligence. Critical indicators for wildfire risk include low humidity, dry vegetation, high wind speeds, and seasonal climate patterns.</p>
+  </div>
+
+  <div class="card" id="model"  data-aos="fade-up">
+    <h2>🧠 Our Prediction Model</h2>
+    <p>Leveraging machine learning, our wildfire risk prediction model uses selected environmental features to assess potential danger levels. The model aids early warning and supports decision-making for prevention and rapid response strategies.</p>
+  </div>
+</section>
+  <footer class="footer">
+    <p >© 2025 Wildfire Predictor Project</p>
+    <p>| Privacy | Contact | Help | Terms |</p>
+  </footer>
+</body>
+</html>

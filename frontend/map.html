@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wildfire Prediction Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 90vh;
+      width: 100%;
+      margin-top: 60px;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width:98%;
+      background-color: #1e3c72;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div><strong>🔥 Wildfire Predictor</strong></div>
+    <div>
+      <a href="/">Home</a>
+      <a href="/data">Data</a>
+      <a href="/predict-page">Predict</a>
+    </div>
+  </nav>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script>
+    // Initialize map
+    const map = L.map('map').setView([20.5937, 78.9629], 5); // Centered on India
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Fetch predictions from backend
+    fetch('/api/predictions')
+      .then(res => res.json())
+      .then(data => {
+        data.forEach(entry => {
+          if (entry.latitude && entry.longitude) {
+            const marker = L.marker([entry.latitude, entry.longitude]).addTo(map);
+            marker.bindPopup(`
+              <strong>🔥 Prediction:</strong> ${entry.prediction == 1 ? "High Risk" : "Low Risk"}<br>
+              Temp: ${entry.temp}°C<br>
+              DC: ${entry.dc}
+            `);
+          }
+        });
+      });
+  </script>
+</body>
+</html>
